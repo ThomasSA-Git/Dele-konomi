@@ -3,22 +3,20 @@ package com.company;
 public class Item {
   private String category;
   private String description;
-  private boolean availible;
+  private boolean availability;
 
   public Item(String category, String description) {
     this.category = category;
     this.description = description;
-    this.availible = true;
+    this.availability = true;
   }
 
-  public boolean udlånStatus(){
-    if (availible == true) {
-      return true;
-    }
-    else {
-      return false;
-    }
+  public Item(String category, String description, boolean availibilty) {
+    this.category = category;
+    this.description = description;
+    this.availability = availibilty;
   }
+
   public void setCategory(String newCategory){
     this.category = newCategory;
   }
@@ -27,13 +25,27 @@ public class Item {
     this.description = newDescription;
   }
 
+  public boolean checkAvailability(){
+    return availability;
+  }
+
+  public boolean setAvailability(){
+    if(availability == true) {
+      this.availability = false;
+      return this.availability;
+    } else{
+      availability = true;
+      return this.availability;
+    }
+  }
+
 
   public String getCategory() {
-    return category;
+    return this.category;
   }
 
   public String getDescription(){
-    return description;
+    return this.description;
   }
 }
 

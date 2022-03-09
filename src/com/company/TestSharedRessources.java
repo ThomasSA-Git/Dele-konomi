@@ -1,9 +1,29 @@
 package com.company;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class TestSharedRessources {
+
+  public void showCatalog(){
+
+  }
+
+  public void showAvailable(){
+
+  }
+
+  public void addItem(){
+
+  }
+
+  public void borrowItem(){
+
+  }
+
+  public void returnItem(){
+
+  }
+
 
   public static void main(String[] args) {
 
@@ -22,12 +42,19 @@ public class TestSharedRessources {
     catalogue.addItem(item4);
     Item item5 = new Item("Værktøj", "Boremaskine");
     catalogue.addItem(item5);
+    Item item6 = new Item("Værktøj", "Hammer");
+    catalogue.addItem(item6);
+    Item item7 = new Item("Sport", "Skøjter");
+    catalogue.addItem(item7);
+    Item item8 = new Item("Sport", "Skridtbeskytter");
+    catalogue.addItem(item8);
+    Item item9 = new Item("Tøj", "Charmeklud");
+    catalogue.addItem(item9);
+    Item item10 = new Item("Sport", "Dobbeltbladet økse");
+    catalogue.addItem(item10);
 
-    System.out.println();
-
-    System.out.println(Arrays.asList(catalogue.getCatalogue()));
     ///////////////////////////////////////////////
-    /*
+
     // Exercise Part 2: Make program with user input instead of hardcoded values
     // Make program able to show menu and handles user choices in loop
     // Ask user what user wants to do
@@ -54,18 +81,22 @@ public class TestSharedRessources {
         System.out.println(availableItems[i]);
       }
     } else if (choice == 3) { // Add new Item to catalogue
-      // Hardcoded values for new Item
-      catalogue.addItem(new Item("Sport", "Tennisbolde"));
+      System.out.println("Indtast kategori for ny genstand:");
+      String newCategory = scanner.next();
+      System.out.println("Indtast beskrivelse af ny genstand:");
+      String newDescription = scanner.next();
+      catalogue.addItem(new Item(newCategory, newDescription));
     } else if (choice == 4) { // make item unavailable
-      // Hardcoded search criteria Skateboard
-      Item found = catalogue.findItem("Skateboard");
-      catalogue.borrowItem(found);
+      System.out.println("Indtast beskrivelse af genstand du ønsker at låne:");
+      String findItem = scanner.next();
+      Item found = catalogue.findItem(findItem);
+      //catalogue.borrowItem(found);
     } else if (choice == 5) { // make item available again
       // Hardcoded search criteria Skateboard
       Item found = catalogue.findItem("Skateboard");
-      catalogue.returnItem(found);
+      //catalogue.returnItem(found);
     } else { // invalid choice
       System.out.println("Du foretog et ugyldigt valg.");
-    }*/
+    }
   }
 }

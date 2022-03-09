@@ -1,13 +1,12 @@
 package com.company;
 
-import java.util.Arrays;
 
 public class Catalogue {
   private Item[] catalogue;
   private int count;
 
-  public Catalogue(int i) {
-    this.catalogue = new Item[i];
+  public Catalogue(int size) {
+    this.catalogue = new Item[size];
   }
 
   public void addItem(Item item) {
@@ -15,8 +14,28 @@ public class Catalogue {
     setCount();
   }
 
-  public String getCatalogue() {
-    return Arrays.toString(catalogue);
+  public Item[] getFullList() {
+    return catalogue;
+  }
+
+  public Item[] getAvailableItems() {
+    int counter = 0;
+    for (Item item : catalogue) {
+      if (item != null && item.checkAvailability()) {
+        counter++;
+      }
+    }
+    Item[] availableItems = new Item[counter];
+    int counter2 = 0;
+    for (Item item : catalogue) {
+      if (item != null) {
+        if (item.checkAvailability()) {
+          availableItems[counter2] = item;
+          counter2++;
+        }
+      }
+    }
+    return availableItems;
   }
 
   public void borrowItem() {
@@ -27,14 +46,13 @@ public class Catalogue {
 
   }
 
-  public String getByDescription(String description) {
-    for (int i = 0; i < count; i++) {
-      for (int j = 0; i < catalogue[i].length; j++)
-        if (catalogue[i][j] == description) {
-          return "Genstanden er nummer " + (i + 1) + "på listen";
-        }
+  public Item findItem(String description) {
+    for (Item item : catalogue) {
+      if (item.getDescription().equalsIgnoreCase(description)) {
+        return item;
+      }
     }
-    return "Fejl";
+    return null;
   }
 
   public void setCount() {
