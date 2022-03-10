@@ -38,12 +38,12 @@ public class Catalogue {
     return availableItems;
   }
 
-  public void borrowItem() {
-
+  public void borrowItem(Item item) {
+    item.setAvailability();
   }
 
-  public void returnItem() {
-
+  public void returnItem(Item item) {
+    item.setAvailability();
   }
 
   public Item findItem(String description) {

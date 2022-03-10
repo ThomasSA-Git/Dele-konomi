@@ -88,13 +88,14 @@ public class TestSharedRessources {
       catalogue.addItem(new Item(newCategory, newDescription));
     } else if (choice == 4) { // make item unavailable
       System.out.println("Indtast beskrivelse af genstand du ønsker at låne:");
-      String findItem = scanner.next();
-      Item found = catalogue.findItem(findItem);
-      //catalogue.borrowItem(found);
+      String borrowItem = scanner.next();
+      Item found = catalogue.findItem(borrowItem);
+      catalogue.borrowItem(found);
     } else if (choice == 5) { // make item available again
-      // Hardcoded search criteria Skateboard
-      Item found = catalogue.findItem("Skateboard");
-      //catalogue.returnItem(found);
+      System.out.println("Indtast beskrivelse af genstand du ønsker at returnere:");
+      String returnItem = scanner.next();
+      Item found = catalogue.findItem(returnItem);
+      catalogue.returnItem(found);
     } else { // invalid choice
       System.out.println("Du foretog et ugyldigt valg.");
     }
