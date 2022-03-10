@@ -38,7 +38,7 @@ public class Item {
   }
 
   public boolean setAvailability(){
-    if(availability == true) {
+    if(availability) {
       this.availability = false;
       return this.availability;
     } else{
