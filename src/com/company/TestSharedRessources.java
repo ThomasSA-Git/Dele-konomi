@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 public class TestSharedRessources {
 
-  public void showCatalog(){
+  public void startMenu(){
+  }
 
+  public void showCatalog(){
   }
 
   public void showAvailable(){
@@ -27,11 +29,8 @@ public class TestSharedRessources {
 
   public static void main(String[] args) {
 
-    // Exercise Part 1: Create Catalogue and Item classes
-    // Create a catalogue with size 10
     Catalogue catalogue = new Catalogue(10);
 
-    //Create items and add to catalogue
     Item item1 = new Item("Sport", "Skateboard");
     catalogue.addItem(item1);
     Item item2 = new Item("Sport", "Mountainbike");
@@ -72,13 +71,13 @@ public class TestSharedRessources {
     // Decide what to do based on user choice
     if (choice == 1) { // get all items in cataloque
       Item[] allItems = catalogue.getFullList();
-      for (int i = 0; i < allItems.length; i++) {
-        System.out.println(allItems[i]);
+      for (Item allItem : allItems) {
+        System.out.println(allItem);
       }
     } else if (choice == 2) { // get available items in cataloque
       Item[] availableItems = catalogue.getAvailableItems();
-      for (int i = 0; i < availableItems.length; i++) {
-        System.out.println(availableItems[i]);
+      for (Item availableItem : availableItems) {
+        System.out.println(availableItem);
       }
     } else if (choice == 3) { // Add new Item to catalogue
       System.out.println("Indtast kategori for ny genstand:");
