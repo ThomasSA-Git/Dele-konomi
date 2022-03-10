@@ -63,14 +63,13 @@ public class Main {
         2. Nej
         """);
     int choiceAdd = scanner.nextInt();
-    if (choiceAdd == 1) {
-      addItem();
-    }
-    if (choiceAdd == 2) {
-      restart();
-    } else {
-      System.out.println("Ugyldigt valg. Prøv igen.");
-      addMoreItems();
+    switch (choiceAdd) {
+      case 1 -> addItem();
+      case 2 -> restart();
+      default -> {
+        System.out.println("Ugyldigt valg. Prøv igen.");
+        addMoreItems();
+      }
     }
   }
 
