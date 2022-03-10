@@ -1,6 +1,5 @@
 package com.company;
 
-
 public class Catalogue {
   private Item[] catalogue;
   private int count;
@@ -57,6 +56,5 @@ public class Catalogue {
 
   public void setCount() {
     count++;
-
   }
 }

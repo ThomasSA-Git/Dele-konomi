@@ -17,6 +17,14 @@ public class Item {
     this.availability = availibilty;
   }
 
+  @Override
+  public String toString() {
+    return "Item:\n" +
+        "| Beskrivelse = " + description + '\n' +
+        "| Kategori = " + category + '\n' +
+        "| Genstanden er ledig = " + availability;
+  }
+
   public void setCategory(String newCategory){
     this.category = newCategory;
   }
